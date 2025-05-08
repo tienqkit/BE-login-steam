@@ -2,7 +2,11 @@ import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class AuthService {
-  validateUser(profile: any) {
+  validateUser(profile: {
+    id: string;
+    displayName: string;
+    photos?: { value: string }[];
+  }) {
     return {
       steamId: profile.id,
       displayName: profile.displayName,

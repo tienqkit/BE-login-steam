@@ -11,7 +11,9 @@ export class AuthController {
 
   @Get('steam/return')
   @UseGuards(AuthGuard('steam'))
-  steamReturn(@Req() req) {
+  steamReturn(
+    @Req() req: { user?: { id: string; username: string; [key: string]: any } },
+  ) {
     return {
       message: 'Steam login success',
       user: req.user,
@@ -19,7 +21,9 @@ export class AuthController {
   }
 
   @Get('me')
-  getMe(@Req() req) {
+  getMe(
+    @Req() req: { user?: { id: string; username: string; [key: string]: any } },
+  ) {
     return req.user || { message: 'Not logged in' };
   }
 }

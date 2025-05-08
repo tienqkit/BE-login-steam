@@ -1,0 +1,27 @@
+{
+  "env": {
+    "browser": true,
+    "node": true,
+    "es2021": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:jsx-a11y/recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:prettier/recommended"
+  ],
+  "plugins": ["react", "jsx-a11y", "import", "prettier"],
+  "rules": {
+    "prettier/prettier": "error", // Bật cảnh báo nếu mã không tuân theo Prettier
+    "react/prop-types": "off",
+    "no-console": "warn",
+    "import/no-unresolved": "error"
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  }
+}

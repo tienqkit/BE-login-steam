@@ -9,7 +9,10 @@ async function bootstrap() {
   // ⚙️ CORS chặn theo whitelist
   const whitelist = ['http://localhost:3001']; // Thay domain frontend vào đây
   app.enableCors({
-    origin: (origin, callback) => {
+    origin: (
+      origin: string | undefined,
+      callback: (err: Error | null, allow?: boolean) => void,
+    ) => {
       if (!origin || whitelist.includes(origin)) {
         callback(null, true);
       } else {
@@ -19,7 +22,6 @@ async function bootstrap() {
     credentials: true,
   });
 
-  // 🗝 Session
   app.use(
     session({
       secret: 'steam-secret',
